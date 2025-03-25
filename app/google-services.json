@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "653640440021",
+    "project_id": "notesprovip",
+    "storage_bucket": "notesprovip.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:653640440021:android:cde0115b34d8150d0d6a5c",
+        "android_client_info": {
+          "package_name": "com.example.notesprovip"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKyPo0kwZQu43F8o5dfSU_XYozHCcwiqk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
