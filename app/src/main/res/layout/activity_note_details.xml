@@ -20,8 +20,19 @@
             android:layout_height="wrap_content"
             android:text="Thêm ghi chú mới"
             android:textColor="@color/white"
-            android:textSize="32dp"
+            android:textSize="32sp"
             android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/delete_note_btn"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="52dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/baseline_delete_24"
+            android:visibility="gone"
+            app:tint="@color/white" />
 
         <ImageButton
             android:id="@+id/save"
@@ -34,39 +45,79 @@
             app:tint="@color/white" />
     </RelativeLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@id/titlebarlayout"
-        android:layout_marginVertical="26dp"
-        android:background="@drawable/rounded_corner"
-        android:backgroundTint="@color/white"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:fillViewport="true">
 
-        <EditText
-            android:id="@+id/titletext"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            android:hint="Tiêu đề"
-            android:padding="12dp"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            android:layout_marginVertical="26dp"
+            android:background="@drawable/rounded_corner"
+            android:backgroundTint="@color/white"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <EditText
-            android:id="@+id/contenttext"
+            <EditText
+                android:id="@+id/titletext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:hint="Tiêu đề"
+                android:padding="12dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/contenttext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:gravity="top"
+                android:hint="Nội dung"
+                android:minLines="15"
+                android:padding="12dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            android:gravity="top"
-            android:hint="Nội dung"
-            android:minLines="15"
-            android:padding="12dp"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="normal" />
-        
-    </LinearLayout>
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/uploadImageBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Chọn và upload ảnh" />
+
+            <Button
+                android:id="@+id/deleteImageBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="2dp"
+                android:visibility="gone"
+                android:text="Xóa ảnh" />
+        </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/noteImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:visibility="gone"
+                tools:src="@tools:sample/avatars" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
 </RelativeLayout>

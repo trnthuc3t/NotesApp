@@ -5,7 +5,7 @@ import com.google.firebase.Timestamp;
 public class Note {
     String title, content;
     Timestamp timestamp;
-//    private String imageUrl;
+    private String imageUrl;
 
     public Note() {
 
@@ -35,11 +35,11 @@ public class Note {
         this.timestamp = timestamp;
     }
 
-//    public String getImageUrl() {
-//        return imageUrl;
-//    }
+    public String getImageUrl() {
+        return imageUrl;
+    }
 
-//    public void setImageUrl(String imageUrl) {
-//        this.imageUrl = imageUrl;
-//    }
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 }

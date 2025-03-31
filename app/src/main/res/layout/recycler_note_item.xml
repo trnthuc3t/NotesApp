@@ -27,6 +27,13 @@
         android:maxLines="2"
         android:text="Nội dung"
         android:textSize="17dp" />
+    <ImageView
+        android:id="@+id/note_image"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+    android:layout_marginTop="8dp" />
 
     <TextView
         android:id="@+id/note_time_tv"
