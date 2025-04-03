@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         initbd();
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("653640440021-crbh8u0mhvg4p8a9el9q4hq3n2oqbs99.apps.googleusercontent.com") // Lấy từ Google Cloud Console
+                .requestIdToken("653640440021-crbh8u0mhvg4p8a9el9q4hq3n2oqbs99.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
         googleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -58,8 +58,6 @@ public class LoginActivity extends AppCompatActivity {
         createaccountBtnTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent= new Intent();
-
                 startActivity(new Intent(LoginActivity.this,CreateAccountActivity.class));
             }
         });

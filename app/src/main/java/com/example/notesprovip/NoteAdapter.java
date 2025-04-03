@@ -29,7 +29,6 @@ public class NoteAdapter extends FirestoreRecyclerAdapter<Note, NoteAdapter.Note
         holder.contentTextview.setText(note.content);
         holder.timeTextview.setText(User.timeToString(note.timestamp));
 
-        // Hiển thị ảnh nếu có imageUrl
         if (note.getImageUrl() != null && !note.getImageUrl().isEmpty()) {
             holder.noteImage.setVisibility(View.VISIBLE);
             Glide.with(context)

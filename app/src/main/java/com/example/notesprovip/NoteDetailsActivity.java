@@ -93,8 +93,6 @@ public class NoteDetailsActivity extends AppCompatActivity {
                 Intent i= new Intent(Intent.ACTION_SEND);
                 i.setType("*/*");
                 i.putExtra(Intent.EXTRA_SUBJECT,"Tiêu đề: "+title);
-//                i.putExtra(Intent.EXTRA_TEXT,"Nội dung: "+ content);
-//                i.putExtra(Intent.EXTRA_STREAM, imageUrl);
                 i.putExtra(Intent.EXTRA_TEXT, "Nội dung: "+content+"\nHình ảnh: "+ imageUrl);
                 startActivity(Intent.createChooser(i,"Chọn nền tảng share"));
             }
@@ -179,8 +177,7 @@ public class NoteDetailsActivity extends AppCompatActivity {
                 runOnUiThread(() -> {
                     Toast.makeText(this, "Upload ảnh thành công: " + imageUrl, Toast.LENGTH_LONG).show();
                     Log.d("NoteDetails", "Image URL: " + imageUrl);
-                    // Xóa cache Glide và load ảnh mới
-                    Glide.with(this).clear(noteImage);  // Xóa cache trước khi load
+                    Glide.with(this).clear(noteImage);
                     loadImage(imageUrl);
                     isUploading = false;
                     uploadImageBtn.setEnabled(true);
@@ -212,8 +209,8 @@ public class NoteDetailsActivity extends AppCompatActivity {
 
     private void deleteImage() {
         imageUrl = null;
-        Glide.with(this).clear(noteImage);  // Xóa ảnh hiện tại khỏi ImageView
-        loadImage(null);  // Cập nhật giao diện
+        Glide.with(this).clear(noteImage);
+        loadImage(null);
 //        saveNote();
         Toast.makeText(this, "Đã xóa ảnh khỏi ghi chú", Toast.LENGTH_SHORT).show();
     }

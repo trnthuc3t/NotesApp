@@ -42,13 +42,13 @@ public class MainActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                setupRecyclerView(query);  // Tìm kiếm khi nhấn Enter
+                setupRecyclerView(query);
                 return true;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                setupRecyclerView(newText);  // Tìm kiếm theo thời gian thực
+                setupRecyclerView(newText);
                 return true;
             }
         });
@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
         Query query = User.getCollectionrf()
                 .orderBy("timestamp", Query.Direction.DESCENDING);
 
-        // Nếu có nội dung tìm kiếm, thêm điều kiện lọc
         if (searchText != null && !searchText.isEmpty()) {
             query = User.getCollectionrf()
                     .whereGreaterThanOrEqualTo("title", searchText)
@@ -74,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         noteAdapter = new NoteAdapter(options, this);
         recyclerView.setAdapter(noteAdapter);
-        noteAdapter.startListening();  // Bắt đầu lắng nghe dữ liệu mới
+        noteAdapter.startListening();
     }
 
     @Override
