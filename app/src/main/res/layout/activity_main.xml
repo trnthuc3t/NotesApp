@@ -6,21 +6,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/my_primary"
+
     android:padding="16dp"
+
     tools:context=".MainActivity">
 
     <RelativeLayout
         android:id="@+id/titlebarlayout"
+        android:paddingTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search"
+            android:layout_width="245dp"
+            android:layout_height="60dp"
+            
+            android:layout_centerVertical="true"
+            android:backgroundTint="@color/white"
+            android:paddingLeft="30dp"
+            app:iconifiedByDefault="false"
+            app:queryHint="@string/searchname" />
+
 
         <ImageButton
             android:id="@+id/menu_btn"
             android:layout_width="43dp"
             android:layout_height="43dp"
+
+            android:layout_centerVertical="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/baseline_menu_24"
-            app:tint="@color/white" />
+            android:src="@drawable/baseline_menu_24"/>
 
         <TextView
 
@@ -32,7 +49,6 @@
             android:textColor="@color/white"
             android:textSize="32dp"
             android:textStyle="bold" />
-
 
     </RelativeLayout>
 

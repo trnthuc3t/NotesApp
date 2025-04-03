@@ -36,7 +36,7 @@ import java.util.Collections;
 
 public class NoteDetailsActivity extends AppCompatActivity {
     EditText titleEdt, contentEdt;
-    ImageButton savenoteBtn, deleteNoteBtn;
+    ImageButton savenoteBtn, deleteNoteBtn,backtomainBtn, shareBtn;
     TextView tieudetrangTv;
     Button uploadImageBtn, deleteImageBtn;
     ImageView noteImage;
@@ -67,6 +67,7 @@ public class NoteDetailsActivity extends AppCompatActivity {
         if (isEditMode) {
             tieudetrangTv.setText("Sửa ghi chú");
             deleteNoteBtn.setVisibility(View.VISIBLE);
+            shareBtn.setVisibility(View.VISIBLE);
         }
 
         loadImage(imageUrl);
@@ -78,6 +79,24 @@ public class NoteDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 deletenotefromFireBase();
+            }
+        });
+        backtomainBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        shareBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(Intent.ACTION_SEND);
+                i.setType("*/*");
+                i.putExtra(Intent.EXTRA_SUBJECT,"Tiêu đề: "+title);
+//                i.putExtra(Intent.EXTRA_TEXT,"Nội dung: "+ content);
+//                i.putExtra(Intent.EXTRA_STREAM, imageUrl);
+                i.putExtra(Intent.EXTRA_TEXT, "Nội dung: "+content+"\nHình ảnh: "+ imageUrl);
+                startActivity(Intent.createChooser(i,"Chọn nền tảng share"));
             }
         });
     }
@@ -183,7 +202,7 @@ public class NoteDetailsActivity extends AppCompatActivity {
             deleteImageBtn.setVisibility(View.VISIBLE);
             Glide.with(this)
                     .load(url)
-                    .error(R.drawable.baseline_error_24)
+//                    .error(R.drawable.baseline_error_24)
                     .into(noteImage);
         } else {
             noteImage.setVisibility(View.GONE);
@@ -252,5 +271,7 @@ public class NoteDetailsActivity extends AppCompatActivity {
         noteImage = findViewById(R.id.noteImage);
         deleteImageBtn = findViewById(R.id.deleteImageBtn);
         deleteNoteBtn = findViewById(R.id.delete_note_btn);
+        backtomainBtn= findViewById(R.id.back);
+        shareBtn= findViewById(R.id.share);
     }
 }

@@ -5,13 +5,13 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;  // Thêm import
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;  // Thêm import
+import com.bumptech.glide.Glide;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
@@ -34,7 +34,6 @@ public class NoteAdapter extends FirestoreRecyclerAdapter<Note, NoteAdapter.Note
             holder.noteImage.setVisibility(View.VISIBLE);
             Glide.with(context)
                     .load(note.getImageUrl())
-                    .error(R.drawable.baseline_error_24)  // Ảnh lỗi nếu load thất bại
                     .into(holder.noteImage);
         } else {
             holder.noteImage.setVisibility(View.GONE);
@@ -44,7 +43,7 @@ public class NoteAdapter extends FirestoreRecyclerAdapter<Note, NoteAdapter.Note
             Intent intent = new Intent(context, NoteDetailsActivity.class);
             intent.putExtra("title", note.title);
             intent.putExtra("content", note.content);
-            intent.putExtra("imageUrl", note.getImageUrl());  // Truyền imageUrl
+            intent.putExtra("imageUrl", note.getImageUrl());
             String docId = this.getSnapshots().getSnapshot(position).getId();
             intent.putExtra("docId", docId);
             context.startActivity(intent);
@@ -61,7 +60,7 @@ public class NoteAdapter extends FirestoreRecyclerAdapter<Note, NoteAdapter.Note
 
     class NoteViewholder extends RecyclerView.ViewHolder {
         TextView titleTextview, contentTextview, timeTextview;
-        ImageView noteImage;  // Thêm ImageView
+        ImageView noteImage;
 
         public NoteViewholder(@NonNull View itemView) {
             super(itemView);
@@ -72,7 +71,7 @@ public class NoteAdapter extends FirestoreRecyclerAdapter<Note, NoteAdapter.Note
             titleTextview = itemView.findViewById(R.id.note_title_tv);
             contentTextview = itemView.findViewById(R.id.note_content_tv);
             timeTextview = itemView.findViewById(R.id.note_time_tv);
-            noteImage = itemView.findViewById(R.id.note_image);  // Khởi tạo ImageView
+            noteImage = itemView.findViewById(R.id.note_image);
         }
     }
 }
